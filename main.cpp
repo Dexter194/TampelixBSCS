@@ -1,74 +1,69 @@
 #include <iostream>
+#include <iomanip>
 #include <stdlib.h>
 using namespace std;
 
-int inputArraysize();
-void inputArray(int[]);
-void displayArray(int[]);
-void choosearray(int[]);
 int arrSize;
-
+void getBasicinfo(string[],string[],int[],int[],string[],string[]);
+void disPlayarray(string[],string[],int[],int[],string[],string[]);
 int main()
 {
-     int age[arrSize];
-     inputArray(age);
-     displayArray(age);
+    string fname[10];
+    string lname[10];
+    int age[10];
+    int contact[10];
+    string email[10];
+    string address[10];
+    getBasicinfo(fname,lname,age,contact,email,address);
+    disPlayarray(fname,lname,age,contact,email,address);
+
 
     return 0;
 }
 
-int inputArraySize()
+int inputarrSize()
 {
     int age [arrSize];
 
-    cout << "Enter Array Size 3 or 4: ";
+    cout <<" Enter Array Size:";
     cin >> arrSize;
 
-return arrSize;
-
+    return arrSize;
 }
 
-void inputArray(int age[])
+void getBasicinfo(string fname[],string lname[],int age[],int contact[],string email[],string address[])
 {
-    inputArraySize();
-    for (int i=0; i<=arrSize-1;i++){
-    cout << "Enter value for position " << i + 1 << " : ";
+    inputarrSize();
+    for (int i=0;i<arrSize;i++){
+    cout <<" Firstname "<< ":";
+    cin >> fname[i];
+    }
+    for (int i=0;i<arrSize;i++){
+    cout <<" Lastname "<< ":";
+    cin >> lname[i];
+    }
+    for (int i=0;i<arrSize;i++){
+    cout <<" Age "<< ":";
     cin >> age[i];
     }
-}
-
-
-void displayArray (int age [])
-{
-system("CLS");
-
-    for (int i=0; i<=arrSize-1;i++)
-    {
-     cout << "The value at position " << i + 1 << " is " << age[i] << endl;
+    for (int i=0;i<arrSize;i++){
+    cout <<" Contact "<< ":";
+    cin >> contact[i];
     }
-
-choosearray(age);
-
+    for (int i=0;i<arrSize;i++){
+    cout <<" Email "<< ":";
+    cin >> email[i];
+    }
+    for (int i=0;i<arrSize;i++){
+    cout <<" Address "<< ":";
+    cin >> address[i];
+    }
 }
-
-void choosearray (int age[])
+void disPlayarray(string fname[], string lname[],int age[],int contact[],string email[],string address[])
 {
-    int choice;
-    cout << "\n Choose an array that you want to display : ";
-     cin >> choice;
-
-     if (choice == 1){
-         cout << "The value at position 1 is "<< age [0] << endl;
-     }
-     if (choice == 2){
-         cout << "The value at position 2 is "<< age [1] << endl;
-     }
-     if (choice == 3){
-         cout << "The value at position 3 is "<< age [2] << endl;
-     }
-     if (choice == 4){
-         cout << "The value at position 4 is "<< age [3] << endl;
-     }
+    system ("CLS");
+      for (int i=0;i<arrSize;i++){
+    cout << "\tFirstname"<< setw(10)<< "Lastname"<< setw(10)<< "Age"<< setw(10)<< "Contact"<< setw(10)<<"E-mail"<<setw(10)<<"Address"<<setw(10)<<endl;
+    cout <<fname[i]<<setw(10)<<"|"<<  lname[i]<<setw(10)<<"|"<<  age[i]<<setw(10)<<"|"<<contact[i]<<setw(10)<<"|"<< email[i]<<setw(10)<<"|"<< address[i]<<setw(10)<<endl;
+      }
 }
-
-
