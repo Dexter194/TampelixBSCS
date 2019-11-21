@@ -1,69 +1,65 @@
 #include <iostream>
-#include <iomanip>
 #include <stdlib.h>
-using namespace std;
 
-int arrSize;
-void getBasicinfo(string[],string[],int[],int[],string[],string[]);
-void disPlayarray(string[],string[],int[],int[],string[],string[]);
+using namespace std;
+class Product{
+    public:
+    void addProduct( double ProductID, string ProductName ,int price ,double Price,string ExpirationDate);
+    void displayProducts();
+    double addProduct(void);
+    char answer;
+    Product();
+    private:
+    string ProductName;
+    string manufacturer;
+    int price;
+    string ExpirationDate;
+    double ProductID;
+};
+
+ Product::Product(void){
+     string answer;
+
+    cout << "Hello USER!"<< endl;
+do {
+    cout << "Please Enter the following : "<< endl;
+    cout << "Product ID : ";
+    cin >> ProductID;
+    cout << "Enter Product Name :";
+    cin >> ProductName;
+    cout << "Enter the Price :" ;
+    cin >> price;
+    cout << "Manufacturer of the Product : ";
+    cin >> manufacturer;
+    cout << " Expiration date of the Produuct : ";
+    cin >>ExpirationDate;
+    cout << "Do you wish to Enter more product? Y/N?"<< endl;
+    cin >> answer;
+}
+ while (answer == "Y" || answer == "y");
+ }
+
+
+
+void Product :: displayProducts(){
+       system ("CLS");
+    cout << "Your Product ID is : "<< ProductID<< endl;
+    cout << "Your Product Name is :"<< ProductName << endl;
+    cout << "Your Product Price :"<< price << endl;
+    cout << "Your Product Manufacturer is :"<< manufacturer << endl;
+    cout << "Your Product Expiration Date is  :"<< ExpirationDate << endl;
+
+
+}
+
+
 int main()
 {
-    string fname[10];
-    string lname[10];
-    int age[10];
-    int contact[10];
-    string email[10];
-    string address[10];
-    getBasicinfo(fname,lname,age,contact,email,address);
-    disPlayarray(fname,lname,age,contact,email,address);
+    Product product;
 
+    product.displayProducts();
 
     return 0;
+
 }
 
-int inputarrSize()
-{
-    int age [arrSize];
-
-    cout <<" Enter Array Size:";
-    cin >> arrSize;
-
-    return arrSize;
-}
-
-void getBasicinfo(string fname[],string lname[],int age[],int contact[],string email[],string address[])
-{
-    inputarrSize();
-    for (int i=0;i<arrSize;i++){
-    cout <<" Firstname "<< ":";
-    cin >> fname[i];
-    }
-    for (int i=0;i<arrSize;i++){
-    cout <<" Lastname "<< ":";
-    cin >> lname[i];
-    }
-    for (int i=0;i<arrSize;i++){
-    cout <<" Age "<< ":";
-    cin >> age[i];
-    }
-    for (int i=0;i<arrSize;i++){
-    cout <<" Contact "<< ":";
-    cin >> contact[i];
-    }
-    for (int i=0;i<arrSize;i++){
-    cout <<" Email "<< ":";
-    cin >> email[i];
-    }
-    for (int i=0;i<arrSize;i++){
-    cout <<" Address "<< ":";
-    cin >> address[i];
-    }
-}
-void disPlayarray(string fname[], string lname[],int age[],int contact[],string email[],string address[])
-{
-    system ("CLS");
-      for (int i=0;i<arrSize;i++){
-    cout << "\tFirstname"<< setw(10)<< "Lastname"<< setw(10)<< "Age"<< setw(10)<< "Contact"<< setw(10)<<"E-mail"<<setw(10)<<"Address"<<setw(10)<<endl;
-    cout <<fname[i]<<setw(10)<<"|"<<  lname[i]<<setw(10)<<"|"<<  age[i]<<setw(10)<<"|"<<contact[i]<<setw(10)<<"|"<< email[i]<<setw(10)<<"|"<< address[i]<<setw(10)<<endl;
-      }
-}
